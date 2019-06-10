@@ -6,6 +6,17 @@
  * ie: "cat" => "tac"
  */
 
+function firstReverse(str){
+    if(typeof str === 'string'){
+        var splitStr = str.split('');
+        var reverseSplitStr = splitStr.reverse();
+        var rts = reverseSplitStr.join('');
+        return rts;
+    }else{
+        return null;
+    }
+}
+ 
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
  * return the string in alphabetical order
@@ -14,6 +25,16 @@
  * ie: "cake" => "acek"
  */
 
+function alphaOrder(str){
+    if(typeof str !== 'string'){
+        return null;
+    }
+    var splitStr = str.split('');
+    var sortedStr = splitStr.sort();
+    var rts = sortedStr.join('');
+    return rts;
+}
+
  /** Function: vowelCount
  * The function will take the num parameter being passed in and
  * return the number of vowels in the string
@@ -21,6 +42,40 @@
  * @return {number} count of vowels
  * ie: "oreo" => 3
  */
+
+function vowelCount(str){
+    if(typeof str !== 'string'){
+        return null;
+    }
+    var count = 0;
+    var splitStr = str.split('');
+    for(i in splitStr){
+        if(splitStr[i].toLowerCase() == 'a'){
+            count++;
+        }else if(splitStr[i].toLowerCase() == 'e'){
+            count++;
+        }else if(splitStr[i].toLowerCase() == 'i'){
+            count++;
+        }else if(splitStr[i].toLowerCase() == 'o'){
+            count++;
+        }else if(splitStr[i].toLowerCase() == 'u'){
+            count++;
+        }
+    }
+    return count;
+}
+vowelCount('oreo');
+
+// function removeItem(array, item){
+//     for(var i in array){
+//         if(array[i]==item){
+//             array.splice(i,1);
+//             break;
+//         }
+//     }
+// }
+
+// removeItem(array, 'seven');
 
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
@@ -56,9 +111,9 @@
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    vowelCount: vowelCount,
     timeConvert: null,
     repeatString: null
 }

@@ -8,9 +8,9 @@
 
 function firstReverse(str){
     if(typeof str === 'string'){
-        var splitStr = str.split('');
-        var reverseSplitStr = splitStr.reverse();
-        var rts = reverseSplitStr.join('');
+        let splitStr = str.split('');
+        let reverseSplitStr = splitStr.reverse();
+        let rts = reverseSplitStr.join('');
         return rts;
     }else{
         return null;
@@ -29,9 +29,9 @@ function alphaOrder(str){
     if(typeof str !== 'string'){
         return null;
     }
-    var splitStr = str.split('');
-    var sortedStr = splitStr.sort();
-    var rts = sortedStr.join('');
+    let splitStr = str.split('');
+    let sortedStr = splitStr.sort();
+    let rts = sortedStr.join('');
     return rts;
 }
 
@@ -47,9 +47,9 @@ function vowelCount(str){
     if(typeof str !== 'string'){
         return null;
     }
-    var count = 0;
-    var splitStr = str.split('');
-    for(i in splitStr){
+    let count = 0;
+    let splitStr = str.split('');
+    for(let i in splitStr){
         if(splitStr[i].toLowerCase() == 'a'){
             count++;
         }else if(splitStr[i].toLowerCase() == 'e'){
@@ -64,18 +64,6 @@ function vowelCount(str){
     }
     return count;
 }
-vowelCount('oreo');
-
-// function removeItem(array, item){
-//     for(var i in array){
-//         if(array[i]==item){
-//             array.splice(i,1);
-//             break;
-//         }
-//     }
-// }
-
-// removeItem(array, 'seven');
 
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
@@ -85,6 +73,19 @@ vowelCount('oreo');
  * @return {string} as hours:minutes
  * ie: 68 => 1:8
  */
+
+function timeConvert(str){
+    if(typeof str !== 'number'){
+        return null;
+    }
+    let hours;
+    let minutes;
+    let converted;
+    hours = Math.floor(str / 60);
+    minutes = str % 60;
+    converted = hours + ':' + minutes
+    return converted;
+}
 
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
@@ -114,6 +115,6 @@ module.exports = {
     firstReverse: firstReverse,
     alphaOrder: alphaOrder,
     vowelCount: vowelCount,
-    timeConvert: null,
+    timeConvert: timeConvert,
     repeatString: null
 }

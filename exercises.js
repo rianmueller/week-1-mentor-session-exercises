@@ -96,6 +96,19 @@ function timeConvert(str){
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
 
+function repeatString(str, times){
+    if(typeof str !== 'string'){
+        return null;
+    }
+    if(typeof times !== 'number'){
+        return null;
+    }
+    let arr = []
+    for(i = 0; i < times; i++){
+        arr.push(str);
+    }
+    return arr.join('');
+}
 
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
@@ -116,5 +129,5 @@ module.exports = {
     alphaOrder: alphaOrder,
     vowelCount: vowelCount,
     timeConvert: timeConvert,
-    repeatString: null
+    repeatString: repeatString
 }
